@@ -1,4 +1,9 @@
+
 class Book {
+
+    static newBooks = true;
+    static oldBooks = true;
+
     constructor(title, author, year) {
         this.title = title;
         this.author = author;
@@ -11,21 +16,16 @@ class Book {
 
     getAge(){
         const years = new Date().getFullYear() - this.year;
-        return `${this.title} is ${years} years old`;
+        return `${this.title} is ${years} old`;
     }
-    
-    revise(newYear) {
-        this.year = newYear;
-        this.revised = true;
-    }
+
 }
 
-// Initiate Object
-
 const book1 = new Book('Book One', 'John Doe', '2013');
+
+// instance of Book do not contain static methods
 console.log(book1);
-// book1.revise('2018');
-// console.log(book1);
-console.log(book1.getAge());
 
-
+// static methods can only be accessed by the class
+console.log(Book.newBooks);
+console.log(Book.oldBooks);
